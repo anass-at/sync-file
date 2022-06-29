@@ -51,7 +51,7 @@ const run = async () => {
 				destExists = fs.existsSync(localDestination)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ (2)  :  ${destExists} , source:  ${localDestination}`)
 				await git.add(file.dest)
-				core.debug(await git.status())
+				core.info(await git.status())
 
 				// core.info(`Files ${JSON.stringify(fs.readdirSync(file.source),null,2)}`)
 
