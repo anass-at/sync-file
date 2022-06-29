@@ -42,10 +42,11 @@ const run = async () => {
 			// Clone and setup the git repository locally
 			await git.initRepo(item.repo)
 			await forEach(item.files, async (file) => {
-				core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source}`)
+				
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :   ${file.dist}`)
 
-				// const fileExists = fs.existsSync(file.source)
+				const fileExists = fs.existsSync(file.source)
+				core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source} , is Exists: ${fileExists}`)
 				// if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
 
 				// const localDestination = `${ git.workingDir }/${ file.dest }`
