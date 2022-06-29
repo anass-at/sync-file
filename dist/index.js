@@ -22375,12 +22375,17 @@ const run = async () => {
 			// Clone and setup the git repository locally
 			await git.initRepo(item.repo)
 			await forEach(item.files, async (file) => {
-				core.info(`Files ${JSON.stringify(fs.readdirSync(file.source),null,2)}`)
-				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :   ${file.dest}`)
 
-				const fileExists = fs.existsSync(file.source)
-				core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source} , is Exists: ${fileExists}`)
+				const localDestination = `${ git.workingDir }/${ file.dest }`
+				const destExists = fs.existsSync(localDestination)
+				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :  ${destExists} , source:  ${localDestination}`)
 				if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
+				
+				// core.info(`Files ${JSON.stringify(fs.readdirSync(file.source),null,2)}`)
+
+				// const fileExists = fs.existsSync(file.source)
+				// core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source} , is Exists: ${fileExists}`)
+				// if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
 
 				// const hasChanges = await git.hasChanges()
 				// if (hasChanges === false) return core.debug('File(s) already up to date')
