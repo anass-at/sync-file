@@ -22375,7 +22375,7 @@ const run = async () => {
 			// Clone and setup the git repository locally
 			await git.initRepo(item.repo)
 			await forEach(item.files, async (file) => {
-				core.info(`Files ${item.files}`)
+				core.info(`Files ${JSON.stringify(item.files,null,2)}`)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :   ${file.dest}`)
 
 				const fileExists = fs.existsSync(file.source)
