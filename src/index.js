@@ -43,7 +43,7 @@ const run = async () => {
 			await git.initRepo(item.repo)
 			await forEach(item.files, async (file) => {
 				
-				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :   ${file.dist}`)
+				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :   ${file.dest}`)
 
 				const fileExists = fs.existsSync(file.source)
 				core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source} , is Exists: ${fileExists}`)
