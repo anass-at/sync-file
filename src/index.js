@@ -50,7 +50,8 @@ const run = async () => {
 				await remove(localDestination)
 				destExists = fs.existsSync(localDestination)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ (2)  :  ${destExists} , source:  ${localDestination}`)
-				await git.add(localDestination)
+				// await git.add(localDestination)
+				await git.addChanges()
 				core.info(await git.status())
 
 				const commitMessage = "deleted "

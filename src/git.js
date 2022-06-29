@@ -146,6 +146,13 @@ class Git {
 		)
 	}
 
+	async addChanges() {
+		return execCmd(
+			`git add .`,
+			this.workingDir
+		)
+	}
+
 	isOneCommitPush() {
 		return github.context.eventName === 'push' && github.context.payload.commits.length === 1
 	}
