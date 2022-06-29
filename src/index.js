@@ -46,7 +46,7 @@ const run = async () => {
 				const localDestination = `${ git.workingDir }/${ file.dest }`
 				var destExists = fs.existsSync(localDestination)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :  ${destExists} , source:  ${localDestination}`)
-				if (fileExists == false) return core.warning(`Source ${ file.source } not found`)
+				if (destExists == false) return core.warning(`Source ${ file.source } not found`)
 				await remove(localDestination)
 				destExists = fs.existsSync(localDestination)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ (2)  :  ${destExists} , source:  ${localDestination}`)
