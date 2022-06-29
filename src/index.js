@@ -50,7 +50,7 @@ const run = async () => {
 				await remove(localDestination)
 				destExists = fs.existsSync(localDestination)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ (2)  :  ${destExists} , source:  ${localDestination}`)
-				await git.add(file.dest)
+				await git.add(localDestination)
 				core.info(await git.status())
 
 				const commitMessage = git.originalCommitMessage()
