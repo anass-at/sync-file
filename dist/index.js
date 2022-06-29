@@ -22394,13 +22394,14 @@ const run = async () => {
 				await git.addChanges()
 				core.info(await git.status())
 
-				const commitMessage = "deleted "
+				const commitMessage = "delete  " + file.dest
 				await git.commit(commitMessage)
-				modified.push({
-					dest: git.workingDir,
-					useOriginalMessage: true,
-					commitMessage: commitMessage
-				})
+				await git.push()
+				// modified.push({
+				// 	dest: git.workingDir,
+				// 	useOriginalMessage: true,
+				// 	commitMessage: commitMessage
+				// })
 
 
 				// core.info(`Files ${JSON.stringify(fs.readdirSync(file.source),null,2)}`)
