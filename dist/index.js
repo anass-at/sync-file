@@ -22377,10 +22377,13 @@ const run = async () => {
 			await forEach(item.files, async (file) => {
 
 				const localDestination = `${ git.workingDir }/${ file.dest }`
-				const destExists = fs.existsSync(localDestination)
+				var destExists = fs.existsSync(localDestination)
 				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :  ${destExists} , source:  ${localDestination}`)
-				if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
-				
+				if (fileExists == false) return core.warning(`Source ${ file.source } not found`)
+				await remove(localDestination)
+				destExists = fs.existsSync(localDestination)
+				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ (2)  :  ${destExists} , source:  ${localDestination}`)
+
 				// core.info(`Files ${JSON.stringify(fs.readdirSync(file.source),null,2)}`)
 
 				// const fileExists = fs.existsSync(file.source)
