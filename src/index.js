@@ -53,14 +53,14 @@ const run = async () => {
 				await git.add(file.dest)
 				core.info(await git.status())
 
-				const commitMessage = useOriginalCommitMessage ? git.originalCommitMessage() : undefined
+				const commitMessage = git.originalCommitMessage()
 				await git.commit(commitMessage)
 				modified.push({
 					dest: git.workingDir,
 					useOriginalMessage: useOriginalCommitMessage,
 					commitMessage: commitMessage
 				})
-				
+
 
 				// core.info(`Files ${JSON.stringify(fs.readdirSync(file.source),null,2)}`)
 
