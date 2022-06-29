@@ -22375,11 +22375,14 @@ const run = async () => {
 			// Clone and setup the git repository locally
 			await git.initRepo(item.repo)
 			await forEach(item.files, async (file) => {
-				const fileExists = fs.existsSync(file.source)
-				if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
+				core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source}`)
+				core.info(`Destintion 🕵🏻‍♂️🕵🏻‍♂️ :   ${file.dist}`)
 
-				const localDestination = `${ git.workingDir }/${ file.dest }`
-				core.info('destination 🕵🏻‍♂️🕵🏻‍♂️' , localDestination)
+				// const fileExists = fs.existsSync(file.source)
+				// if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
+
+				// const localDestination = `${ git.workingDir }/${ file.dest }`
+				// core.info('destination 🕵🏻‍♂️🕵🏻‍♂️' , file.dist)
 			})
 
 
