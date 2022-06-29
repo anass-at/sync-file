@@ -47,6 +47,11 @@ const run = async () => {
 
 				const fileExists = fs.existsSync(file.source)
 				core.info(`Source 🕵🏻‍♂️🕵🏻‍♂️' :  ${file.source} , is Exists: ${fileExists}`)
+				if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
+
+				// const hasChanges = await git.hasChanges()
+				// if (hasChanges === false) return core.debug('File(s) already up to date')
+
 				// if (fileExists === false) return core.warning(`Source ${ file.source } not found`)
 
 				// const localDestination = `${ git.workingDir }/${ file.dest }`
