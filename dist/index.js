@@ -22386,11 +22386,11 @@ const run = async () => {
 				await git.add(localDestination)
 				core.info(await git.status())
 
-				const commitMessage = git.originalCommitMessage()
+				const commitMessage = "deleted "
 				await git.commit(commitMessage)
 				modified.push({
 					dest: git.workingDir,
-					useOriginalMessage: useOriginalCommitMessage,
+					useOriginalMessage: true,
 					commitMessage: commitMessage
 				})
 
